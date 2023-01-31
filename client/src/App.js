@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import SavedList from './Movies/SavedList';
 import MovieList from './Movies/MovieList';
+import Movie from './Movies/Movie';
 // import res from 'express/lib/response';
 
 export default function App () {
@@ -37,6 +38,9 @@ export default function App () {
 
       <Route path="/">
         <MovieList movies={movieList}/>
+      </Route>
+      <Route path="/movies/:id">
+        <Movie />
       </Route>
     </div>
   );
