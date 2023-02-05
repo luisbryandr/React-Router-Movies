@@ -5,6 +5,7 @@ import axios from 'axios';
 import SavedList from './Movies/SavedList';
 import MovieList from './Movies/MovieList';
 import Movie from './Movies/Movie';
+import MovieCard from './Movies/MovieCard';
 // import res from 'express/lib/response';
 
 export default function App () {
@@ -18,7 +19,7 @@ export default function App () {
         .then(response => {
           // Study this response with a breakpoint or log statements
           // and set the response data as the 'movieList' slice of state
-          // console.log(response)
+          console.log(response)
           setMovieList(response.data);
         })
         .catch(error => {
@@ -35,13 +36,16 @@ export default function App () {
   return (
     <div>
       <SavedList list={[ /* This is stretch */]} />
-
-      <Route exact path="/">
+      <Route>
+        <MovieCard movies={movieList}/>
+      </Route>
+      
+      {/* <Route exact path="/">
         <MovieList movies={movieList}/>
       </Route>
       <Route path="/movies/:id">
         <Movie />
-      </Route>
+      </Route> */}
     </div>
   );
 }
